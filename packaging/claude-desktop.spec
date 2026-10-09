@@ -29,6 +29,12 @@
 %global deb_sha256 %{deb_sha256_arm64}
 %endif
 
+# The app bundles private copies of Chromium's libraries in its own
+# directory. Do not advertise them as system-wide Provides, and do not
+# require them from the system, where the bundled copies satisfy them.
+%global __provides_exclude_from ^/usr/lib/claude-desktop/.*$
+%global __requires_exclude ^(libffmpeg\\.so|libEGL\\.so|libGLESv2\\.so|libvk_swiftshader\\.so|libvulkan\\.so).*$
+
 Name:           claude-desktop
 Version:        2.31226.0
 # OBS supplies the real release (lp160.N.M); 0 is the openSUSE convention.
