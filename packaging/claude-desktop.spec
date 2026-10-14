@@ -14,8 +14,8 @@
 # (dists/stable/main/binary-<arch>/Packages, field "SHA256:"). Bumped in
 # lockstep with Version by scripts/bump-version.sh. Verified in %%prep so a
 # changed-out-from-under-us payload fails the build instead of shipping.
-%global deb_sha256_amd64 eb86fda7c8073117b29f2e9022da5ffd398b8f125e331d7d5956e9ba0e3bd6d4
-%global deb_sha256_arm64 06797cc89cf369809235a4095b877af05931e5df48bc9907d318fb513ae75b05
+%global deb_sha256_amd64 41745b0914f0ff51631a1ff1bb403b836bf5c995845cca6742dd39bca3a2da14
+%global deb_sha256_arm64 ad6f1da2a114215d2a73c53c1a99681f9c0bbe148b92f906d635b2efed835cdc
 
 # Debian and Node.js names of the architecture being built.
 %ifarch x86_64
@@ -36,7 +36,7 @@
 %global __requires_exclude ^(libffmpeg\\.so|libEGL\\.so|libGLESv2\\.so|libvk_swiftshader\\.so|libvulkan\\.so).*$
 
 Name:           claude-desktop
-Version:        2.31226.0
+Version:        2.37337.1
 # OBS supplies the real release (lp160.N.M); 0 is the openSUSE convention.
 Release:        0
 Summary:        Desktop application for Claude (Chat, Cowork, Code)
