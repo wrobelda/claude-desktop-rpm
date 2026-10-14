@@ -1,0 +1,37 @@
+name: sync with upstream
+
+# Merges hierynomus/claude-desktop-rpm main into the integration branch every
+# hour and bumps it to the newest Claude Desktop build. Each push to
+# integration triggers the Copr webhook, which rebuilds the package.
+#
+# A merge that changes files under .github/workflows can only be pushed with a
+# token that has the "workflows" permission, which GITHUB_TOKEN never has. Store
+# a fine-grained token with Contents and Workflows write access to this
+# repository as the SYNC_TOKEN secret to cover that case.
+
+on:
+  schedule:
+    - cron: "41 * * * *"   # hourly, at minute 41
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: integration
+          fetch-depth: 0
+          token: ${{ secrets.SYNC_TOKEN || github.token }}
+
+      - name: Merge upstream and bump
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git remote add upstream https://github.com/hierynomus/claude-desktop-rpm.git
+          git fetch upstream main
+          .github/scripts/sync-upstream.sh upstream/main
+          git push origin HEAD:integration
