@@ -176,6 +176,12 @@ chmod 0755 %{buildroot}/usr/lib/claude-desktop/chrome-sandbox
 /usr/share/icons/hicolor
 
 %changelog
+* Wed Oct 14 2026 jeroen <jeroen@hierynomus.com> - 2.37337.1-0
+- Update to upstream 2.37337.1
+
+* Sat Oct 10 2026 jeroen <jeroen@hierynomus.com> - 2.31226.1-0
+- Update to upstream 2.31226.1
+
 * Fri Oct 09 2026 jeroen <jeroen@hierynomus.com> - 2.31226.0-0
 - Update to upstream 2.31226.0
 
