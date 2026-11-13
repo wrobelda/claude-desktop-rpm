@@ -14,8 +14,8 @@
 # (dists/stable/main/binary-<arch>/Packages, field "SHA256:"). Bumped in
 # lockstep with Version by scripts/bump-version.sh. Verified in %%prep so a
 # changed-out-from-under-us payload fails the build instead of shipping.
-%global deb_sha256_amd64 eb4d16c9aff0a696366d88728f74fa55136be7cfde3c1fe35af4062b45955b6f
-%global deb_sha256_arm64 d7a0144e6946975e6c5f33a48db08cbe08bccda04bdb19cf2254aa690bce25c1
+%global deb_sha256_amd64 9c5cf5d4c8b2356779a3dde7dedfe1c301a7223971597198213d815fe8ccfa55
+%global deb_sha256_arm64 0705809bfc8c72877aab551cca99b2ff8632849897f47144096c6f18ad3848cf
 
 # Debian and Node.js names of the architecture being built.
 %ifarch x86_64
@@ -36,7 +36,7 @@
 %global __requires_exclude ^(libffmpeg\\.so|libEGL\\.so|libGLESv2\\.so|libvk_swiftshader\\.so|libvulkan\\.so).*$
 
 Name:           claude-desktop
-Version:        5.1231.2
+Version:        5.11492.0
 # OBS supplies the real release (lp160.N.M); 0 is the openSUSE convention.
 Release:        0
 Summary:        Desktop application for Claude (Chat, Cowork, Code)
@@ -176,6 +176,9 @@ chmod 0755 %{buildroot}/usr/lib/claude-desktop/chrome-sandbox
 /usr/share/icons/hicolor
 
 %changelog
+* Fri Nov 13 2026 jeroen <jeroen@hierynomus.com> - 5.11492.0-0
+- Update to upstream 5.11492.0
+
 * Wed Nov 11 2026 jeroen <jeroen@hierynomus.com> - 5.1231.2-0
 - Update to upstream 5.1231.2
 
